@@ -7,34 +7,34 @@ function removeAccents(phrase) {
       if (hasAccent) {
         switch (true) {
           case (i == 0):
-            phrase = phrase.replace(letter, 'a');
+            phrase = phrase.replaceAll(letter, 'a');
             break;
           case (i == 1):
-            phrase = phrase.replace(letter, 'e');
+            phrase = phrase.replaceAll(letter, 'e');
             break;
           case (i == 2):
-            phrase = phrase.replace(letter, 'i');
+            phrase = phrase.replaceAll(letter, 'i');
             break;
           case (i == 3):
-            phrase = phrase.replace(letter, 'o');
+            phrase = phrase.replaceAll(letter, 'o');
             break;
           case (i == 4):
-            phrase = phrase.replace(letter, 'u');
+            phrase = phrase.replaceAll(letter, 'u');
             break;
           case (i == 5):
-            phrase = phrase.replace(letter, 'A');
+            phrase = phrase.replaceAll(letter, 'A');
             break;
           case (i == 6):
-            phrase = phrase.replace(letter, 'E');
+            phrase = phrase.replaceAll(letter, 'E');
             break;
           case (i == 7):
-            phrase = phrase.replace(letter, 'I');
+            phrase = phrase.replaceAll(letter, 'I');
             break;
           case (i == 8):
-            phrase = phrase.replace(letter, 'O');
+            phrase = phrase.replaceAll(letter, 'O');
             break;
           case (i == 9):
-            phrase = phrase.replace(letter, 'U');
+            phrase = phrase.replaceAll(letter, 'U');
             break;
         }
       }
@@ -46,17 +46,18 @@ function removeAccents(phrase) {
 function isPalindrome(phrase,isCaseSensitive,isSpaceSensitive,isAccentSensitive){
   if (isCaseSensitive === false){
     phrase = phrase.toLowerCase();
+    console.log(phrase);
   }
   if (isSpaceSensitive === false){
     phrase = phrase.replaceAll(' ','');
   }
   if (isAccentSensitive === false){
     phrase = removeAccents(phrase);
+    console.log(phrase);
   }
   let reversePhrase = phrase.split('');
   reversePhrase = reversePhrase.reverse();
   reversePhrase = reversePhrase.join('');
   return phrase === reversePhrase;
 }
-console.log(removeAccents('mÄrÁm'));
-console.log(isPalindrome('mÄrÁm',true,false,false));
+console.log(isPalindrome('mérÉm',true,false,false));
